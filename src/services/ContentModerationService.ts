@@ -29,7 +29,7 @@ export default class ContentModerationService {
       if (res.summary && res.summary.action === 'reject') {
         throw new Errors.GeneralError('content_is_not_allowed');
       }
-      return {};
+      return res;
     } else {
       await this.logResponse(response, `${transactionId}`);
       return this.handleError(response);
@@ -65,7 +65,7 @@ export default class ContentModerationService {
       ) {
         throw new Errors.GeneralError('content_is_not_allowed');
       }
-      return {};
+      return res;
     } else {
       await this.logResponse(response, `${transactionId}`);
       return this.handleError(response);
